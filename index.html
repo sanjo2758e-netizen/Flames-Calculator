@@ -1,0 +1,1189 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>FLAMES Calculator ❤️ | Check Your Love & Relationship Result</title>
+
+    <meta name="description"
+          content="Try the fun FLAMES calculator! Enter your name and your crush's name to discover your FLAMES relationship result. Love, Friendship, Affection, Marriage, Enemy or Sibling?">
+
+    <meta name="keywords"
+          content="FLAMES calculator, flames game, love calculator, crush calculator, relationship calculator, name compatibility, flames game online">
+
+    <meta name="robots" content="index, follow">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top, #32104f 0%, #12091d 45%, #07050a 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           BACKGROUND PARTICLES
+        ========================= */
+
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+
+            from {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            text-align: center;
+            padding: 30px 20px 10px;
+        }
+
+        .logo {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ff477e;
+        }
+
+        .tagline {
+            margin-top: 8px;
+            color: #cfc5d8;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+        }
+
+
+        /* =========================
+           ADVERTISEMENT
+        ========================= */
+
+        .ad-box {
+            min-height: 90px;
+            border: 1px dashed rgba(255,255,255,0.25);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #81788b;
+            font-size: 12px;
+            margin: 15px 0 25px;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+        }
+
+        .heart {
+            text-align: center;
+            font-size: 60px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #c9c1cf;
+            margin: 10px 0 30px;
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           INPUTS
+        ========================= */
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #eee;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(0,0,0,0.25);
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input::placeholder {
+            color: #8f8798;
+        }
+
+        input:focus {
+            border-color: #ff477e;
+            box-shadow: 0 0 0 3px rgba(255,71,126,0.12);
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .calculate-btn {
+            width: 100%;
+            padding: 17px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #ff477e, #ff174f);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255,23,79,0.25);
+            transition: 0.25s;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255,23,79,0.35);
+        }
+
+        .calculate-btn:active {
+            transform: scale(0.98);
+        }
+
+
+        /* =========================
+           RESULT
+        ========================= */
+
+        #resultSection {
+            display: none;
+            margin-top: 25px;
+            animation: resultAppear 0.7s ease;
+        }
+
+        @keyframes resultAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .result-names {
+            font-size: 18px;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .result-emoji {
+            font-size: 65px;
+            margin-bottom: 10px;
+        }
+
+        .result-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #ff477e;
+        }
+
+        .result-description {
+            margin-top: 10px;
+            color: #d8d0dc;
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           SHARE BUTTONS
+        ========================= */
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .share-buttons button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        .copy {
+            background: #4c4c5e;
+        }
+
+        .again {
+            width: 100%;
+            margin-top: 10px;
+            padding: 13px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           FLAMES EXPLANATION
+        ========================= */
+
+        .flames-info {
+            margin-top: 35px;
+        }
+
+        .flames-info h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .flames-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .flame-item {
+            padding: 15px 10px;
+            text-align: center;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .flame-item strong {
+            display: block;
+            font-size: 20px;
+            color: #ff477e;
+            margin-bottom: 5px;
+        }
+
+        .flame-item span {
+            font-size: 12px;
+            color: #bbb;
+        }
+
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+            margin-top: 40px;
+        }
+
+        .faq h2 {
+            margin-bottom: 15px;
+        }
+
+        details {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        details p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            color: #777;
+            padding: 35px 20px;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CONFETTI
+        ========================= */
+
+        .confetti {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            top: -10px;
+            pointer-events: none;
+            animation: confettiFall 3s linear forwards;
+            z-index: 999;
+        }
+
+        @keyframes confettiFall {
+
+            to {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding-top: 22px;
+            }
+
+            .logo {
+                font-size: 27px;
+            }
+
+            main {
+                padding: 12px;
+            }
+
+            .card {
+                padding: 22px 18px;
+                border-radius: 20px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .heart {
+                font-size: 50px;
+            }
+
+            .result-title {
+                font-size: 34px;
+            }
+
+            .flames-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- Floating particles -->
+
+<div class="particle" style="left:10%; animation-duration:8s;"></div>
+<div class="particle" style="left:25%; animation-duration:12s;"></div>
+<div class="particle" style="left:40%; animation-duration:10s;"></div>
+<div class="particle" style="left:60%; animation-duration:14s;"></div>
+<div class="particle" style="left:75%; animation-duration:9s;"></div>
+<div class="particle" style="left:90%; animation-duration:13s;"></div>
+
+
+<header>
+
+    <div class="logo">
+        🔥 <span>FLAMES</span> Calculator
+    </div>
+
+    <div class="tagline">
+        Enter two names and discover your FLAMES result ❤️
+    </div>
+
+</header>
+
+
+<main>
+
+
+    <!-- TOP AD -->
+
+    <div class="ad-box">
+        Advertisement
+    </div>
+
+
+    <!-- MAIN CARD -->
+
+    <div class="card">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h1>FLAMES Calculator</h1>
+
+        <p class="subtitle">
+            Enter your name and your crush's name.
+            Let's see what FLAMES says! 😍
+        </p>
+
+
+        <!-- NAME 1 -->
+
+        <div class="input-group">
+
+            <label for="name1">
+                👤 Your Name
+            </label>
+
+            <input
+                type="text"
+                id="name1"
+                placeholder="Enter your name"
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- NAME 2 -->
+
+        <div class="input-group">
+
+            <label for="name2">
+                ❤️ Crush / Friend's Name
+            </label>
+
+            <input
+                type="text"
+                id="name2"
+                placeholder="Enter their name"
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <button
+            class="calculate-btn"
+            onclick="calculateFlames()"
+        >
+            🔥 Calculate FLAMES
+        </button>
+
+
+        <!-- RESULT -->
+
+        <section id="resultSection">
+
+            <div class="result-card">
+
+                <div
+                    id="resultNames"
+                    class="result-names">
+                </div>
+
+                <div
+                    id="resultEmoji"
+                    class="result-emoji">
+                </div>
+
+                <div
+                    id="resultTitle"
+                    class="result-title">
+                </div>
+
+                <p
+                    id="resultDescription"
+                    class="result-description">
+                </p>
+
+
+                <div class="share-buttons">
+
+                    <button
+                        class="whatsapp"
+                        onclick="shareWhatsApp()">
+                        📱 WhatsApp
+                    </button>
+
+                    <button
+                        class="copy"
+                        onclick="copyResult()">
+                        📋 Copy
+                    </button>
+
+                </div>
+
+
+                <button
+                    class="again"
+                    onclick="tryAgain()">
+                    🔄 Try Again
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- MIDDLE AD -->
+
+    <div class="ad-box">
+        Advertisement
+    </div>
+
+
+    <!-- FLAMES INFO -->
+
+    <section class="flames-info">
+
+        <h2>🔥 What does FLAMES mean?</h2>
+
+        <div class="flames-grid">
+
+            <div class="flame-item">
+                <strong>F</strong>
+                <span>Friends</span>
+            </div>
+
+            <div class="flame-item">
+                <strong>L</strong>
+                <span>Love</span>
+            </div>
+
+            <div class="flame-item">
+                <strong>A</strong>
+                <span>Affection</span>
+            </div>
+
+            <div class="flame-item">
+                <strong>M</strong>
+                <span>Marriage</span>
+            </div>
+
+            <div class="flame-item">
+                <strong>E</strong>
+                <span>Enemies</span>
+            </div>
+
+            <div class="flame-item">
+                <strong>S</strong>
+                <span>Siblings</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="faq">
+
+        <h2>❓ Frequently Asked Questions</h2>
+
+
+        <details>
+
+            <summary>
+                What is the FLAMES game?
+            </summary>
+
+            <p>
+                FLAMES is a traditional name-based game played
+                for fun. It uses the letters F, L, A, M, E and S
+                to produce a playful relationship result.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Is the FLAMES result real?
+            </summary>
+
+            <p>
+                No. FLAMES is only a fun game and does not
+                scientifically determine whether two people
+                are compatible.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Can I play FLAMES with my crush?
+            </summary>
+
+            <p>
+                Yes! Enter both names and share the result
+                with your friends or crush for fun.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Can I play it with my friends?
+            </summary>
+
+            <p>
+                Of course! Try it with your best friend,
+                classmates, siblings or anyone else.
+            </p>
+
+        </details>
+
+    </section>
+
+
+    <!-- BOTTOM AD -->
+
+    <div class="ad-box">
+        Advertisement
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 FLAMES Calculator · Made for fun ❤️
+
+</footer>
+
+
+
+<script>
+
+    /* ==========================================
+       FLAMES DATA
+    ========================================== */
+
+    const flamesData = {
+
+        F: {
+            title: "FRIENDS",
+            emoji: "👫",
+            description:
+                "Looks like you two have a strong friendship! 🤝"
+        },
+
+        L: {
+            title: "LOVE",
+            emoji: "❤️",
+            description:
+                "Ooooh! FLAMES says LOVE! 💕 Take it as a fun result!"
+        },
+
+        A: {
+            title: "AFFECTION",
+            emoji: "🥰",
+            description:
+                "There seems to be some special affection between you two! ✨"
+        },
+
+        M: {
+            title: "MARRIAGE",
+            emoji: "💍",
+            description:
+                "Whoa! FLAMES says MARRIAGE! 😂 Remember, it's only for fun!"
+        },
+
+        E: {
+            title: "ENEMIES",
+            emoji: "⚔️",
+            description:
+                "Uh-oh! FLAMES says ENEMIES! 😜 Maybe don't take this seriously!"
+        },
+
+        S: {
+            title: "SIBLINGS",
+            emoji: "👨‍👩‍👧",
+            description:
+                "FLAMES says SIBLINGS! 😂 It's just a fun game!"
+        }
+
+    };
+
+
+    /* ==========================================
+       CALCULATE FLAMES
+    ========================================== */
+
+    function calculateFlames() {
+
+        const name1 =
+            document.getElementById("name1").value.trim();
+
+        const name2 =
+            document.getElementById("name2").value.trim();
+
+
+        /* Validate */
+
+        if (!name1 || !name2) {
+
+            alert("Please enter both names ❤️");
+
+            return;
+        }
+
+
+        /* Keep only letters */
+
+        let a =
+            name1.toLowerCase().replace(/[^a-z]/g, "");
+
+        let b =
+            name2.toLowerCase().replace(/[^a-z]/g, "");
+
+
+        if (!a || !b) {
+
+            alert("Please enter valid names.");
+
+            return;
+        }
+
+
+        /* Convert names to arrays */
+
+        let arrA = a.split("");
+        let arrB = b.split("");
+
+
+        /* Remove matching letters */
+
+        for (let i = arrA.length - 1; i >= 0; i--) {
+
+            const index =
+                arrB.indexOf(arrA[i]);
+
+            if (index !== -1) {
+
+                arrA.splice(i, 1);
+
+                arrB.splice(index, 1);
+
+            }
+
+        }
+
+
+        /* Remaining letters */
+
+        const count =
+            arrA.length + arrB.length;
+
+
+        /* FLAMES calculation */
+
+        let flames =
+            ["F", "L", "A", "M", "E", "S"];
+
+        let index = 0;
+
+
+        while (flames.length > 1) {
+
+            index =
+                (index + count - 1) % flames.length;
+
+            flames.splice(index, 1);
+
+        }
+
+
+        const result =
+            flames[0];
+
+
+        showResult(
+            name1,
+            name2,
+            result
+        );
+
+    }
+
+
+    /* ==========================================
+       SHOW RESULT
+    ========================================== */
+
+    function showResult(name1, name2, result) {
+
+        const data =
+            flamesData[result];
+
+
+        document.getElementById("resultNames").textContent =
+            name1 + " ❤️ " + name2;
+
+
+        document.getElementById("resultEmoji").textContent =
+            data.emoji;
+
+
+        document.getElementById("resultTitle").textContent =
+            data.title;
+
+
+        document.getElementById("resultDescription").textContent =
+            data.description;
+
+
+        document.getElementById("resultSection").style.display =
+            "block";
+
+
+        /* Scroll to result */
+
+        setTimeout(() => {
+
+            document.getElementById("resultSection")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+        }, 100);
+
+
+        /* Celebration */
+
+        createConfetti();
+
+    }
+
+
+    /* ==========================================
+       WHATSAPP SHARE
+    ========================================== */
+
+    function shareWhatsApp() {
+
+        const names =
+            document.getElementById("resultNames").textContent;
+
+        const result =
+            document.getElementById("resultTitle").textContent;
+
+
+        const website =
+            window.location.href;
+
+
+        const message =
+            "🔥 We played FLAMES! ❤️\n\n" +
+            names + "\n\n" +
+            "Our result: " + result + " 😍\n\n" +
+            "Try your FLAMES result here:\n" +
+            website;
+
+
+        const url =
+            "https://wa.me/?text=" +
+            encodeURIComponent(message);
+
+
+        window.open(url, "_blank");
+
+    }
+
+
+    /* ==========================================
+       COPY RESULT
+    ========================================== */
+
+    function copyResult() {
+
+        const names =
+            document.getElementById("resultNames").textContent;
+
+        const result =
+            document.getElementById("resultTitle").textContent;
+
+
+        const text =
+            "🔥 FLAMES Result 🔥\n\n" +
+            names + "\n" +
+            "Result: " + result + "\n\n" +
+            "Try FLAMES yourself: " +
+            window.location.href;
+
+
+        navigator.clipboard.writeText(text)
+            .then(() => {
+
+                alert("Result copied! 📋");
+
+            })
+            .catch(() => {
+
+                alert("Unable to copy. Please copy it manually.");
+
+            });
+
+    }
+
+
+    /* ==========================================
+       TRY AGAIN
+    ========================================== */
+
+    function tryAgain() {
+
+        document.getElementById("resultSection")
+            .style.display = "none";
+
+
+        document.getElementById("name1").value = "";
+
+        document.getElementById("name2").value = "";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+
+        document.getElementById("name1").focus();
+
+    }
+
+
+    /* ==========================================
+       CONFETTI
+    ========================================== */
+
+    function createConfetti() {
+
+        for (let i = 0; i < 60; i++) {
+
+            const confetti =
+                document.createElement("div");
+
+
+            confetti.className =
+                "confetti";
+
+
+            confetti.style.left =
+                Math.random() * 100 + "vw";
+
+
+            confetti.style.animationDelay =
+                Math.random() * 0.8 + "s";
+
+
+            confetti.style.background =
+                randomColor();
+
+
+            document.body.appendChild(confetti);
+
+
+            setTimeout(() => {
+
+                confetti.remove();
+
+            }, 3500);
+
+        }
+
+    }
+
+
+    /* ==========================================
+       RANDOM CONFETTI COLORS
+    ========================================== */
+
+    function randomColor() {
+
+        const colors = [
+
+            "#ff477e",
+            "#ffcc00",
+            "#00e5ff",
+            "#7c4dff",
+            "#69f0ae",
+            "#ffffff"
+
+        ];
+
+        return colors[
+            Math.floor(
+                Math.random() * colors.length
+            )
+        ];
+
+    }
+
+
+    /* ==========================================
+       ENTER KEY SUPPORT
+    ========================================== */
+
+    document
+        .getElementById("name1")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+
+                document
+                    .getElementById("name2")
+                    .focus();
+
+            }
+
+        });
+
+
+    document
+        .getElementById("name2")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+
+                calculateFlames();
+
+            }
+
+        });
+
+</script>
+
+
+</body>
+</html>
+```
