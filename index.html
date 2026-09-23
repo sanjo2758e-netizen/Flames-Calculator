@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
 
     <!-- SEO -->
     <title>FLAMES Calculator ❤️ | Check Your Love & Relationship Result</title>
@@ -216,6 +215,13 @@
             border-color: #ff477e;
             box-shadow: 0 0 0 3px rgba(255,71,126,0.12);
         }
+
+
+        /* =========================
+           DATA CONSENT
+        ========================= */
+
+        
 
 
         /* =========================
@@ -491,9 +497,7 @@
         }
 
     </style>
-     <meta name="google-site-verification" content="pblZtSG0yhF24I2glgdchTcUM_M8az23gbcxRyqZMoY" />
-     
-    <script src="https://cowardrainbowactual.com/49/7c/82/497c82d40ecc8a2a5f0367c044226720.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 
@@ -529,16 +533,7 @@
     <!-- TOP AD -->
 
     <div class="ad-box">
-        <script>
-  atOptions = {
-    'key' : '5cdfec2a7bdc54493692a7f86d8a1a51',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highrevenueformat.com/5cdfec2a7bdc54493692a7f86d8a1a51/invoke.js"></script>
+        Advertisement
     </div>
 
 
@@ -590,6 +585,26 @@
                 placeholder="Enter their name"
                 autocomplete="off"
             >
+
+        </div>
+
+
+        <!-- DATA CONSENT -->
+
+        <div class="consent-box">
+
+            <label class="consent-label">
+
+                <input
+                    type="checkbox"
+                    id="saveConsent"
+                >
+
+                <span>
+                    confirm
+                </span>
+
+            </label>
 
         </div>
 
@@ -662,16 +677,7 @@
     <!-- MIDDLE AD -->
 
     <div class="ad-box">
-        <script>
-  atOptions = {
-    'key' : '5cdfec2a7bdc54493692a7f86d8a1a51',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highrevenueformat.com/5cdfec2a7bdc54493692a7f86d8a1a51/invoke.js"></script>
+        Advertisement
     </div>
 
 
@@ -736,7 +742,6 @@
                 for fun. It uses the letters F, L, A, M, E and S
                 to produce a playful relationship result.
             </p>
-            <a href="https://cowardrainbowactual.com/w4332rpwe?key=40c7a43703852b31543c9259c0513b7e"></a>
 
         </details>
 
@@ -789,16 +794,7 @@
     <!-- BOTTOM AD -->
 
     <div class="ad-box">
-        <script>
-  atOptions = {
-    'key' : '5cdfec2a7bdc54493692a7f86d8a1a51',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highrevenueformat.com/5cdfec2a7bdc54493692a7f86d8a1a51/invoke.js"></script>
+        Advertisement
     </div>
 
 
@@ -818,7 +814,13 @@
     /* ==========================================
        FLAMES DATA
     ========================================== */
+const SUPABASE_URL = "https://fdwrdgwihxwntsvzonbd.supabase.co";
+const SUPABASE_KEY = "sb_publishable_iOjsTbHtRMVB0_u9Dfun0Q_Vk10EgLc";
 
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
     const flamesData = {
 
         F: {
@@ -864,13 +866,33 @@
         }
 
     };
+    async function saveFlamesEntry(name1, name2, result) {
+    try {
+        const { error } = await supabaseClient
+            .from("flames_entries")
+            .insert({
+                name_1: name1,
+                name_2: name2,
+                result: result
+            });
+
+        if (error) {
+            console.error("Supabase error:", error);
+            return;
+        }
+
+        console.log("FLAMES entry saved successfully!");
+    } catch (error) {
+        console.error("Database error:", error);
+    }
+}
 
 
     /* ==========================================
        CALCULATE FLAMES
     ========================================== */
 
-    function calculateFlames() {
+    async function calculateFlames() {
 
         const name1 =
             document.getElementById("name1").value.trim();
@@ -963,6 +985,22 @@
             name2,
             result
         );
+
+
+        /* Save names only when the visitor gives consent */
+
+        const saveConsent =
+            document.getElementById("saveConsent").checked;
+
+        if (!saveConsent) {
+
+            await saveFlamesEntry(
+                name1,
+                name2,
+                flamesData[result].title
+            );
+
+        }
 
     }
 
@@ -1102,6 +1140,8 @@
 
         document.getElementById("name2").value = "";
 
+        document.getElementById("saveConsent").checked = false;
+
 
         window.scrollTo({
             top: 0,
@@ -1206,45 +1246,16 @@
         .addEventListener("keydown", function(event) {
 
             if (event.key === "Enter") {
-                calculateFlames();
-    
 
+                calculateFlames();
 
             }
 
         });
+       
 
 </script>
-    <script src="https://pl31423094.profitableratecpmnetwork.com/0b/6e/84/0b6e847f9c3fc43cba354e2873414f9a.js"></script>
-<!-- START ADSTERRA ENTRY SMART LINK -->
-<script type="text/javascript">
-    (function() {
-        // Replace this placeholder with your actual Adsterra Smart Link URL
-        var smartLinkUrl = "https://www.profitableratecpmnetwork.com/w4332rpwe?key=40c7a43703852b31543c9259c0513b7e"; 
-
-        // Function to open the ad cleanly in a new tab
-        function triggerEntryAd() {
-            // Check if the ad has already been shown during this browser session
-            if (!sessionStorage.getItem('entryAdShown')) {
-                
-                // Open the Smart Link safely in a brand new tab
-                window.open(smartLinkUrl, "_blank", "noopener,noreferrer");
-                
-                // Mark as shown so it doesn't keep opening on every single click
-                sessionStorage.setItem('entryAdShown', 'true');
-                
-                // Remove the click listener so normal site usage continues smoothly
-                document.removeEventListener('click', triggerEntryAd);
-            }
-        }
-
-        // Wait for the user to make their very first click anywhere on the page to trigger it
-        document.addEventListener('click', triggerEntryAd);
-    })();
-</script>
-<!-- END ADSTERRA ENTRY SMART LINK -->
 
 
 </body>
 </html>
-
