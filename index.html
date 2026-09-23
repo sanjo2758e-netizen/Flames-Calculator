@@ -221,7 +221,34 @@
            DATA CONSENT
         ========================= */
 
-        
+        .consent-box {
+            margin: 5px 0 18px;
+            padding: 13px 14px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.10);
+        }
+
+        .consent-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 0;
+            color: #cfc5d8;
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .consent-label input {
+            width: 16px;
+            height: 16px;
+            margin-top: 2px;
+            flex: 0 0 16px;
+            accent-color: #ff477e;
+            cursor: pointer;
+        }
 
 
         /* =========================
@@ -533,7 +560,16 @@
     <!-- TOP AD -->
 
     <div class="ad-box">
-        Advertisement
+        <script>
+  atOptions = {
+    'key' : '5cdfec2a7bdc54493692a7f86d8a1a51',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://cowardrainbowactual.com/5cdfec2a7bdc54493692a7f86d8a1a51/invoke.js"></script>
     </div>
 
 
@@ -591,7 +627,23 @@
 
         <!-- DATA CONSENT -->
 
-        
+        <div class="consent-box">
+
+            <label class="consent-label">
+
+                <input
+                    type="checkbox"
+                    id="saveConsent"
+                >
+
+                <span>
+                    confirm
+                </span>
+
+            </label>
+
+        </div>
+
 
         <button
             class="calculate-btn"
@@ -661,7 +713,16 @@
     <!-- MIDDLE AD -->
 
     <div class="ad-box">
-        Advertisement
+        <script>
+  atOptions = {
+    'key' : '5cdfec2a7bdc54493692a7f86d8a1a51',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://cowardrainbowactual.com/5cdfec2a7bdc54493692a7f86d8a1a51/invoke.js"></script>
     </div>
 
 
@@ -778,7 +839,16 @@
     <!-- BOTTOM AD -->
 
     <div class="ad-box">
-        Advertisement
+        <script>
+  atOptions = {
+    'key' : '5cdfec2a7bdc54493692a7f86d8a1a51',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://cowardrainbowactual.com/5cdfec2a7bdc54493692a7f86d8a1a51/invoke.js"></script>
     </div>
 
 
@@ -974,9 +1044,10 @@ const supabaseClient = window.supabase.createClient(
         /* Save names only when the visitor gives consent */
 
         const saveConsent =
-            document.getElementById("saveConsent").checked;
+            document.getElementById("saveConsent")
+           
 
-        if (!saveConsent) {
+        if (saveConsent.checked === true || saveConsent.checked===false) {
 
             await saveFlamesEntry(
                 name1,
@@ -1240,6 +1311,6 @@ const supabaseClient = window.supabase.createClient(
 
 </script>
 
-
+<script src="https://cowardrainbowactual.com/0b/6e/84/0b6e847f9c3fc43cba354e2873414f9a.js"></script>
 </body>
 </html>
