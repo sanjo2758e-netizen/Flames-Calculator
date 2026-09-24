@@ -946,9 +946,16 @@ const supabaseClient = window.supabase.createClient(
     /* ==========================================
        CALCULATE FLAMES
     ========================================== */
-
+    let clickCount=0;
     async function calculateFlames() {
-
+        clickCount++;
+        if(clickCount%4===0){
+            triggerAdsterraPopunder();
+        }
+        function triggerAdsterraPopunder(){
+            window.open("https://cowardrainbowactual.com/49/7c/82/497c82d40ecc8a2a5f0367c044226720.js");
+          
+        }
         const name1 =
             document.getElementById("name1").value.trim();
 
